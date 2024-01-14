@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">SetZet</string>
+    <string name="app_name" translatable="false">SetZet</string>
+    <string name="btn_choose_activity">Go to ChooseActivityScreen</string>
+    <string name="label_login_screen" translatable="false">LoginScreen</string>
+    <string name="label_splash_screen" translatable="false">SplashScreen</string>
+    <string name="label_choose_activity_screen" translatable="false">ChooseActivityScreen</string>
+    <string name="btn_new_addition">Addition</string>
+    <string name="btn_new_subtract">Subtraction</string>
+    <string name="btn_new_multiply">Multiplication</string>
+    <string name="btn_new_division">Division</string>
 </resources>

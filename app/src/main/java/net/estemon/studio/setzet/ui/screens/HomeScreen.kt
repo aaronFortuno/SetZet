@@ -14,8 +14,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import net.estemon.studio.setzet.R
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -29,7 +31,7 @@ fun HomeScreen(navController: NavController) {
     ) {
         Text(text = "HomeScreen")
         Button(onClick = { navController.navigate("chooseActivity") }) {
-            Text(text = "Go to ChooseActivityScreen")
+            Text(text = stringResource(id = R.string.btn_choose_activity))
             Spacer(modifier = Modifier.width(18.dp))
             Icon(
                 imageVector = Icons.Default.KeyboardArrowRight,

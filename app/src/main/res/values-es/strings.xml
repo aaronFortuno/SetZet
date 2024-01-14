@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_choose_activity">Ve a ChooseActivityScreen</string>
+    <string name="btn_new_addition">Suma</string>
+    <string name="btn_new_subtract">Resta</string>
+    <string name="btn_new_multiply">Multiplicación</string>
+    <string name="btn_new_division">División</string>
+</resources>
