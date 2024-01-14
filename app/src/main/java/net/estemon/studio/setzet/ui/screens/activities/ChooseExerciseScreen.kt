@@ -7,11 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.AddCircleOutline
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.RemoveCircleOutline
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -22,9 +21,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import net.estemon.studio.setzet.R
+import net.estemon.studio.setzet.ui.navigation.NavigationRoutes
 
 @Composable
-fun ChooseActivityScreen(navController: NavController) {
+fun ChooseExerciseScreen(navController: NavController) {
 
     Column(
         modifier = Modifier
@@ -36,48 +36,56 @@ fun ChooseActivityScreen(navController: NavController) {
         Text(text = stringResource(id = R.string.label_choose_activity_screen))
 
         Button(
-            onClick = { navController.navigate("chooseActivity") }
+            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) },
+            modifier = Modifier
+                .width(100.dp)
         ) {
             Text(text = stringResource(id = R.string.btn_new_addition))
             Spacer(modifier = Modifier.width(18.dp))
             Icon(
-                imageVector = Icons.Default.Add,
+                imageVector = Icons.Filled.AddCircleOutline,
                 contentDescription = null
             )
         }
 
         Button(
-            onClick = { navController.navigate("chooseActivity") },
-            enabled = false
+            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) },
+            enabled = false,
+            modifier = Modifier
+                .width(100.dp)
         ) {
             Text(text = stringResource(id = R.string.btn_new_subtract))
             Spacer(modifier = Modifier.width(18.dp))
             Icon(
-                imageVector = Icons.Default.ArrowBack,
+                imageVector = Icons.Filled.RemoveCircleOutline,
                 contentDescription = null
             )
         }
 
         Button(
-            onClick = { navController.navigate("chooseActivity") },
-            enabled = false
+            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) },
+            enabled = false,
+            modifier = Modifier
+                .width(100.dp)
         ) {
             Text(text = stringResource(id = R.string.btn_new_multiply))
             Spacer(modifier = Modifier.width(18.dp))
             Icon(
-                imageVector = Icons.Default.Close,
+                imageVector = Icons.Filled.Close,
                 contentDescription = null
             )
         }
 
         Button(
-            onClick = { navController.navigate("chooseActivity") },
-            enabled = false
+            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) },
+            enabled = false,
+            modifier = Modifier
+                .width(100.dp)
         ) {
             Text(text = stringResource(id = R.string.btn_new_division))
             Spacer(modifier = Modifier.width(18.dp))
             Icon(
-                imageVector = Icons.Default.MoreVert,
+                imageVector = Icons.Filled.MoreVert,
                 contentDescription = null
             )
         }

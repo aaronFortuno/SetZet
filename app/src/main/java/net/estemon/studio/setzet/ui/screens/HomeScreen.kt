@@ -18,6 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import net.estemon.studio.setzet.R
+import net.estemon.studio.setzet.ui.navigation.NavigationRoutes
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -30,7 +31,7 @@ fun HomeScreen(navController: NavController) {
         verticalArrangement = Arrangement.Center
     ) {
         Text(text = "HomeScreen")
-        Button(onClick = { navController.navigate("chooseActivity") }) {
+        Button(onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) }) {
             Text(text = stringResource(id = R.string.btn_choose_activity))
             Spacer(modifier = Modifier.width(18.dp))
             Icon(

@@ -14,13 +14,14 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import kotlinx.coroutines.delay
 import net.estemon.studio.setzet.R
+import net.estemon.studio.setzet.ui.navigation.NavigationRoutes
 
 @Composable
 fun SplashScreen(navController: NavController) {
     LaunchedEffect(key1 = true) {
         delay(2000) // simulate load time
-        navController.navigate("login") {
-            popUpTo("splash") { inclusive = true } // delete this screen
+        navController.navigate(NavigationRoutes.LOGIN_SCREEN) {
+            popUpTo(NavigationRoutes.SPLASH_SCREEN) { inclusive = true } // delete this screen
         }
     }
 

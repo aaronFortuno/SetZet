@@ -14,15 +14,17 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import kotlinx.coroutines.delay
 import net.estemon.studio.setzet.R
+import net.estemon.studio.setzet.ui.navigation.NavigationRoutes
 
 @Composable
 fun LoginScreen(navController: NavController) {
     LaunchedEffect(key1 = true) {
         delay(2000) // simulate load time
-        navController.navigate("home") {
-            popUpTo("login") { inclusive = true } // delete this screen
+        navController.navigate(NavigationRoutes.HOME_SCREEN) {
+            popUpTo(NavigationRoutes.LOGIN_SCREEN) { inclusive = true } // delete this screen
         }
     }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
