@@ -1,4 +1,4 @@
-package net.estemon.studio.setzet.ui.screens
+package net.estemon.studio.setzet.ui.screens.init
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,17 +19,12 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import net.estemon.studio.setzet.R
 import net.estemon.studio.setzet.ui.navigation.NavigationRoutes
+import net.estemon.studio.setzet.ui.screens.common.BaseLayout
 
 @Composable
 fun HomeScreen(navController: NavController) {
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
+    BaseLayout {
         Text(text = "HomeScreen")
         Button(onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) }) {
             Text(text = stringResource(id = R.string.btn_choose_activity))

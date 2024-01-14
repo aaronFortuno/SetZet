@@ -15,6 +15,7 @@ import androidx.navigation.NavController
 import kotlinx.coroutines.delay
 import net.estemon.studio.setzet.R
 import net.estemon.studio.setzet.ui.navigation.NavigationRoutes
+import net.estemon.studio.setzet.ui.screens.common.BaseLayout
 
 @Composable
 fun LoginScreen(navController: NavController) {
@@ -25,13 +26,7 @@ fun LoginScreen(navController: NavController) {
         }
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
+    BaseLayout {
         Text(text = stringResource(id = R.string.label_login_screen))
     }
 }

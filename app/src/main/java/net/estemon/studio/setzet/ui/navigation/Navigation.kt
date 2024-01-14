@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import net.estemon.studio.setzet.ui.screens.HomeScreen
+import net.estemon.studio.setzet.ui.screens.init.HomeScreen
 import net.estemon.studio.setzet.ui.screens.activities.ChooseExerciseScreen
 import net.estemon.studio.setzet.ui.screens.init.LoginScreen
 import net.estemon.studio.setzet.ui.screens.init.SplashScreen
