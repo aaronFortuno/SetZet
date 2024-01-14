@@ -38,7 +38,7 @@ fun ChooseExerciseScreen(navController: NavController) {
         Button(
             onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) },
             modifier = Modifier
-                .width(100.dp)
+                .width(200.dp)
         ) {
             Text(text = stringResource(id = R.string.btn_new_addition))
             Spacer(modifier = Modifier.width(18.dp))
@@ -52,7 +52,7 @@ fun ChooseExerciseScreen(navController: NavController) {
             onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) },
             enabled = false,
             modifier = Modifier
-                .width(100.dp)
+                .width(200.dp)
         ) {
             Text(text = stringResource(id = R.string.btn_new_subtract))
             Spacer(modifier = Modifier.width(18.dp))
@@ -66,7 +66,7 @@ fun ChooseExerciseScreen(navController: NavController) {
             onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) },
             enabled = false,
             modifier = Modifier
-                .width(100.dp)
+                .width(200.dp)
         ) {
             Text(text = stringResource(id = R.string.btn_new_multiply))
             Spacer(modifier = Modifier.width(18.dp))
@@ -80,7 +80,7 @@ fun ChooseExerciseScreen(navController: NavController) {
             onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) },
             enabled = false,
             modifier = Modifier
-                .width(100.dp)
+                .width(200.dp)
         ) {
             Text(text = stringResource(id = R.string.btn_new_division))
             Spacer(modifier = Modifier.width(18.dp))
