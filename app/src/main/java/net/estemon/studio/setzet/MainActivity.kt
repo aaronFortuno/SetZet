@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import net.estemon.studio.setzet.ui.navigation.NavigationGraph
 import net.estemon.studio.setzet.ui.screens.HomeScreen
 import net.estemon.studio.setzet.ui.screens.activities.ChooseActivityScreen
 import net.estemon.studio.setzet.ui.screens.init.LoginScreen
@@ -37,13 +38,5 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
-    NavHost(
-        navController = navController,
-        startDestination = "splash"
-    ) {
-        composable("splash") { SplashScreen(navController) }
-        composable("login") { LoginScreen(navController) }
-        composable("home") { HomeScreen(navController) }
-        composable("chooseActivity") { ChooseActivityScreen(navController) }
-    }
+    NavigationGraph(navController)
 }
