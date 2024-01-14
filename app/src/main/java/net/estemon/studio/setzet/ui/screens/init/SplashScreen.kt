@@ -1,4 +1,4 @@
-package net.estemon.studio.setzet.ui.screens
+package net.estemon.studio.setzet.ui.screens.init
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,13 +14,14 @@ import androidx.navigation.NavController
 import kotlinx.coroutines.delay
 
 @Composable
-fun LoginScreen(navController: NavController) {
+fun SplashScreen(navController: NavController) {
     LaunchedEffect(key1 = true) {
         delay(2000) // simulate load time
-        navController.navigate("home") {
-            popUpTo("login") { inclusive = true } // delete this screen
+        navController.navigate("login") {
+            popUpTo("splash") { inclusive = true } // delete this screen
         }
     }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -28,6 +29,6 @@ fun LoginScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = "LoginScreen")
+        Text(text = "SplashScreen")
     }
 }
