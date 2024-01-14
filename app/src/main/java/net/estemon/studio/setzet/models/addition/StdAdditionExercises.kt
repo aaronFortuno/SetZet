@@ -3,9 +3,6 @@ package net.estemon.studio.setzet.models.addition
 /**
  * Addition exercises, as is in "Quinzet" exercises
  */
-
-
-
 val add1stGrade = listOf<Pair<Int, Int>>(
     Pair(2, 3),
     Pair(2, 2),

@@ -21,7 +21,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import net.estemon.studio.setzet.R
+import net.estemon.studio.setzet.models.enums.ExerciseType
 import net.estemon.studio.setzet.ui.navigation.NavigationRoutes
+import net.estemon.studio.setzet.ui.navigation.chooseDifficultyRoute
 
 @Composable
 fun ChooseExerciseScreen(navController: NavController) {
@@ -36,7 +38,7 @@ fun ChooseExerciseScreen(navController: NavController) {
         Text(text = stringResource(id = R.string.label_choose_activity_screen))
 
         Button(
-            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) },
+            onClick = { navController.navigate(chooseDifficultyRoute(ExerciseType.ADDITION)) },
             modifier = Modifier
                 .width(200.dp)
         ) {
@@ -49,7 +51,7 @@ fun ChooseExerciseScreen(navController: NavController) {
         }
 
         Button(
-            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) },
+            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_TYPE_SCREEN) },
             enabled = false,
             modifier = Modifier
                 .width(200.dp)
@@ -63,7 +65,7 @@ fun ChooseExerciseScreen(navController: NavController) {
         }
 
         Button(
-            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) },
+            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_TYPE_SCREEN) },
             enabled = false,
             modifier = Modifier
                 .width(200.dp)
@@ -77,7 +79,7 @@ fun ChooseExerciseScreen(navController: NavController) {
         }
 
         Button(
-            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_SCREEN) },
+            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_TYPE_SCREEN) },
             enabled = false,
             modifier = Modifier
                 .width(200.dp)
