@@ -51,8 +51,7 @@ fun ChooseExerciseScreen(navController: NavController) {
         }
 
         Button(
-            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_TYPE_SCREEN) },
-            enabled = false,
+            onClick = { navController.navigate(chooseDifficultyRoute(ExerciseType.SUBTRACTION)) },
             modifier = Modifier
                 .width(200.dp)
         ) {
@@ -65,8 +64,7 @@ fun ChooseExerciseScreen(navController: NavController) {
         }
 
         Button(
-            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_TYPE_SCREEN) },
-            enabled = false,
+            onClick = { navController.navigate(chooseDifficultyRoute(ExerciseType.MULTIPLICATION)) },
             modifier = Modifier
                 .width(200.dp)
         ) {
@@ -79,8 +77,7 @@ fun ChooseExerciseScreen(navController: NavController) {
         }
 
         Button(
-            onClick = { navController.navigate(NavigationRoutes.CHOOSE_EXERCISE_TYPE_SCREEN) },
-            enabled = false,
+            onClick = { navController.navigate(chooseDifficultyRoute(ExerciseType.DIVISION)) },
             modifier = Modifier
                 .width(200.dp)
         ) {
