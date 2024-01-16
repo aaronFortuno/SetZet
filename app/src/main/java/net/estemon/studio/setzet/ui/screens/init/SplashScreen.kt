@@ -20,7 +20,7 @@ import net.estemon.studio.setzet.ui.screens.common.BaseLayout
 @Composable
 fun SplashScreen(navController: NavController) {
     LaunchedEffect(key1 = true) {
-        delay(2000) // simulate load time
+        delay(500) // simulate load time
         navController.navigate(NavigationRoutes.LOGIN_SCREEN) {
             popUpTo(NavigationRoutes.SPLASH_SCREEN) { inclusive = true } // delete this screen
         }

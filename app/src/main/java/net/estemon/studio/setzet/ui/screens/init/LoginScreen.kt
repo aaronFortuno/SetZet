@@ -20,7 +20,7 @@ import net.estemon.studio.setzet.ui.screens.common.BaseLayout
 @Composable
 fun LoginScreen(navController: NavController) {
     LaunchedEffect(key1 = true) {
-        delay(2000) // simulate load time
+        delay(500) // simulate load time
         navController.navigate(NavigationRoutes.HOME_SCREEN) {
             popUpTo(NavigationRoutes.LOGIN_SCREEN) { inclusive = true } // delete this screen
         }
