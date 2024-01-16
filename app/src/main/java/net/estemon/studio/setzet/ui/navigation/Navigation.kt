@@ -35,7 +35,7 @@ fun exerciseScreenRoute(exerciseType: ExerciseType, difficultyLevel: DifficultyL
 fun NavigationGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = NavigationRoutes.SPLASH_SCREEN
+        startDestination = NavigationRoutes.HOME_SCREEN /* TODO set startDestination to SplashScreen! */
     ) {
         composable(NavigationRoutes.SPLASH_SCREEN) { SplashScreen(navController) }
         composable(NavigationRoutes.LOGIN_SCREEN) { LoginScreen(navController) }
@@ -74,5 +74,6 @@ fun NavigationGraph(navController: NavHostController) {
 
             ExerciseScreen(navController, exerciseType, difficultyLevel)
         }
+
     }
 }
