@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -16,9 +17,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
@@ -40,12 +44,14 @@ fun SingleOperationCard(
     userAnswer: String,
     onAnswerChanged: (String) -> Unit,
     isActive: Boolean,
-    currentActiveIndex: MutableState<Int>
+    currentActiveIndex: MutableState<Int>,
+    isReviewPhase: Boolean
 ) {
     val backgroundColor = if (isActive)
         MaterialTheme.colorScheme.primary.copy(alpha = 0.1f) else Color.Transparent
     val textSize = if (index == currentActiveIndex.value) 32.sp else 16.sp
     val padding = if (isActive) 8.dp else 0.dp
+    val alpha = if (isReviewPhase) 1f else 0f
 
     val focusManager = LocalFocusManager.current
 
@@ -121,6 +127,18 @@ fun SingleOperationCard(
                     fontSize = textSize
                 )
             )
+            Row(
+                modifier = Modifier
+                    .alpha(alpha)
+                    .align(Alignment.CenterVertically)
+            ) {
+                val checkState = remember { mutableStateOf(CheckState.Unchecked) }
+                TriStateCheckbox(
+                    state = checkState.value,
+                    onStateChange = { newState -> checkState.value = newState }
+                )
+            }
+
         }
     }
 }

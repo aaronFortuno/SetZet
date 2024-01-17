@@ -22,8 +22,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -32,11 +30,11 @@ fun CustomNumericKeyboard(
     onDeleteClick: () -> Unit,
     onNextClick: () -> Unit
 ) {
-    val padding = 1
+    val btnPadding = 1
     val numbers = (1..9) + 0
-    val displayMetrics = LocalContext.current.resources.displayMetrics
-    val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
-    //val btnWidthPx = ((screenWidthDp / numbers.size + 2) - padding).toInt()
+    // val displayMetrics = LocalContext.current.resources.displayMetrics
+    // val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
+    // val btnWidthPx = ((screenWidthDp / numbers.size + 2) - padding).toInt()
     val btnWidthPx = 30
 
     Column(modifier = Modifier.fillMaxWidth()) {
@@ -53,7 +51,7 @@ fun CustomNumericKeyboard(
                     shape = RoundedCornerShape(4.dp),
                     contentPadding = PaddingValues(),
                     modifier = Modifier
-                        .padding(padding.dp)
+                        .padding(btnPadding.dp)
                         .width(btnWidthPx.dp)
                         .defaultMinSize(
                             minWidth = 0.dp,
@@ -73,11 +71,17 @@ fun CustomNumericKeyboard(
             modifier = Modifier
                 .padding(8.dp)
         ) {
-            Button(onClick = { onDeleteClick() }) {
+            Button(
+                onClick = { onDeleteClick() },
+                shape = RoundedCornerShape(4.dp)
+            ) {
                 Icon(imageVector = Icons.Default.Backspace, contentDescription = null)
             }
 
-            Button(onClick = { onNextClick() }) {
+            Button(
+                onClick = { onNextClick() },
+                shape = RoundedCornerShape(4.dp),
+            ) {
                 Icon(imageVector = Icons.Default.ArrowForward, contentDescription = null)
             }
         }
