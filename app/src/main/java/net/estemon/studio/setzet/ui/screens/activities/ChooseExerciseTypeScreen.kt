@@ -7,10 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AddCircleOutline
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.RemoveCircleOutline
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import net.estemon.studio.setzet.R
 import net.estemon.studio.setzet.models.enums.ExerciseType
-import net.estemon.studio.setzet.ui.navigation.NavigationRoutes
 import net.estemon.studio.setzet.ui.navigation.chooseDifficultyRoute
 
 @Composable
@@ -45,7 +44,7 @@ fun ChooseExerciseScreen(navController: NavController) {
             Text(text = stringResource(id = R.string.btn_new_addition))
             Spacer(modifier = Modifier.width(18.dp))
             Icon(
-                imageVector = Icons.Filled.AddCircleOutline,
+                imageVector = Icons.Filled.Add,
                 contentDescription = null
             )
         }
@@ -58,7 +57,7 @@ fun ChooseExerciseScreen(navController: NavController) {
             Text(text = stringResource(id = R.string.btn_new_subtract))
             Spacer(modifier = Modifier.width(18.dp))
             Icon(
-                imageVector = Icons.Filled.RemoveCircleOutline,
+                imageVector = Icons.Filled.ArrowBack,
                 contentDescription = null
             )
         }

@@ -33,12 +33,16 @@ import net.estemon.studio.setzet.ui.components.CustomNumericKeyboard
 import net.estemon.studio.setzet.ui.components.SingleOperationCard
 import net.estemon.studio.setzet.ui.components.TimerDisplay
 import net.estemon.studio.setzet.ui.screens.common.BaseLayout
+import net.estemon.studio.setzet.ui.screens.common.stdExerciseTimeLimit
+import net.estemon.studio.setzet.viewmodels.ExerciseViewModel
 
 @Composable
 fun ExerciseScreen(
     navController: NavController,
     exerciseType: ExerciseType,
-    difficultyLevel: DifficultyLevel
+    difficultyLevel: DifficultyLevel,
+    viewModel: ExerciseViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+
 ) {
     val exercises = standardExercises[StdExerciseKey(exerciseType, difficultyLevel)] ?: emptyList()
     val inputs = remember { mutableStateListOf<String>() }
@@ -49,13 +53,12 @@ fun ExerciseScreen(
         exercises.forEach { _ -> inputs.add("") }
     }
 
-    val timeLimitSeconds = 5 /* TODO set work time */
-    val timeLeft = remember { mutableIntStateOf(timeLimitSeconds) }
-    val isTimeRunning = remember { mutableStateOf(false) }
-    val isReviewPhase = remember { mutableStateOf(false) }
-    val dismissReviewDialog = remember { mutableStateOf(false) }
+    val timeLeft = viewModel.timeLeft
+    val isTimeRunning = viewModel.isTimeRunning
+    val isReviewPhase = viewModel.isReviewPhase
+    val dismissReviewDialog = viewModel.dismissReviewDialog
 
-    ExerciseTimer(isTimeRunning, timeLeft, isReviewPhase)
+    ExerciseTimer(isTimeRunning, timeLeft, isReviewPhase, stdExerciseTimeLimit)
 
     val isShowPopup = remember { mutableStateOf(true) }
     if (isShowPopup.value) {
@@ -98,6 +101,7 @@ fun ExerciseScreen(
                     LazyColumn(state = listState) {
                         itemsIndexed(exercises) { index, exercise ->
                             SingleOperationCard(
+                                viewModel = viewModel,
                                 index = index,
                                 operands = exercise,
                                 exerciseType = exerciseType,
@@ -107,7 +111,7 @@ fun ExerciseScreen(
                                 },
                                 isActive = index == currentActiveIndex.intValue,
                                 currentActiveIndex = currentActiveIndex,
-                                isReviewPhase.value
+                                isReviewPhase = isReviewPhase.value
                             )
                         }
                     }
@@ -127,6 +131,16 @@ fun ExerciseScreen(
                         .padding(8.dp)
                 ) {
                     TimerDisplay(timeLeft = timeLeft)
+                }
+            } else {
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.BottomEnd)
+                        .padding(8.dp)
+                ) {
+                    Button(onClick = {  }) {
+                        Text(text = "I'm done")
+                    }
                 }
             }
         }
@@ -188,17 +202,18 @@ private fun ReviewPhaseAlertDialog(
 private fun ExerciseTimer(
     isTimeRunning: MutableState<Boolean>,
     timeLeft: MutableIntState,
-    isReviewPhase: MutableState<Boolean>
+    isReviewPhase: MutableState<Boolean>,
+    timeLimitSeconds: Int
 ) {
     LaunchedEffect(isTimeRunning.value) {
         if (isTimeRunning.value) {
+            timeLeft.value = timeLimitSeconds
             while (timeLeft.intValue > 0) {
                 delay(1000L)
                 timeLeft.intValue--
             }
-            if (timeLeft.intValue <= 0) {
-                isReviewPhase.value = true
-            }
+            isReviewPhase.value = true
+            isTimeRunning.value = false
         }
     }
 }

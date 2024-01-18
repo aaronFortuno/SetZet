@@ -15,7 +15,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
-import androidx.compose.material.icons.filled.Backspace
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -23,6 +23,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import net.estemon.studio.setzet.ui.screens.common.btnPadding
+import net.estemon.studio.setzet.ui.screens.common.screenPadding
 
 @Composable
 fun CustomNumericKeyboard(
@@ -30,12 +32,10 @@ fun CustomNumericKeyboard(
     onDeleteClick: () -> Unit,
     onNextClick: () -> Unit
 ) {
-    val btnPadding = 1
     val numbers = (1..9) + 0
-    // val displayMetrics = LocalContext.current.resources.displayMetrics
-    // val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
-    // val btnWidthPx = ((screenWidthDp / numbers.size + 2) - padding).toInt()
-    val btnWidthPx = 30
+    val displayMetrics = LocalContext.current.resources.displayMetrics
+    val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
+    val btnWidthPx = (screenWidthDp - (screenPadding * 2) - (btnPadding * (numbers.size - 1))) / numbers.size
 
     Column(modifier = Modifier.fillMaxWidth()) {
         LazyHorizontalGrid(
@@ -73,14 +73,20 @@ fun CustomNumericKeyboard(
         ) {
             Button(
                 onClick = { onDeleteClick() },
-                shape = RoundedCornerShape(4.dp)
+                shape = RoundedCornerShape(4.dp),
+                modifier = Modifier
+                    .padding(btnPadding.dp)
+                    .width(((btnWidthPx * 2) + btnPadding).dp)
             ) {
-                Icon(imageVector = Icons.Default.Backspace, contentDescription = null)
+                Icon(imageVector = Icons.Default.Delete, contentDescription = null)
             }
 
             Button(
                 onClick = { onNextClick() },
                 shape = RoundedCornerShape(4.dp),
+                modifier = Modifier
+                    .padding(btnPadding.dp)
+                    .width(((btnWidthPx * 2) + btnPadding).dp)
             ) {
                 Icon(imageVector = Icons.Default.ArrowForward, contentDescription = null)
             }
